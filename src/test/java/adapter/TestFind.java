@@ -9,6 +9,7 @@ import org.asyou.mongo.query.QueryObject;
 import org.asyou.mongo.type.DateTimeFromTo;
 import org.bson.Document;
 import org.junit.Test;
+import sun.nio.ch.ThreadPool;
 
 import java.util.List;
 
@@ -44,10 +45,12 @@ public class TestFind {
 
         adapter.delete().deleteOne(valueModel);
 
+
     }
 
     @Test
     public void Test_Count() throws MongoAdapterException {
+//        AdapterFactory.getAdapter().count();
         System.out.println(AdapterFactory.getAdapter().count().count(new UserModel()));
     }
 }
