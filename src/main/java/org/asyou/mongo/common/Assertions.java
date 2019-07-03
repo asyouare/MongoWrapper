@@ -23,6 +23,14 @@ public final class Assertions {
         throw new IllegalArgumentException(message + " values is all null");
     }
 
+    public static String notBlank(String name, String value){
+        if(StringUtils.isBlank(value)) {
+            throw new IllegalArgumentException(name + " can not be blank");
+        } else {
+            return value;
+        }
+    }
+
     public static void mustBeTrue(String name, boolean condition) {
         if(!condition) {
             throw new IllegalStateException("state should be: " + name);

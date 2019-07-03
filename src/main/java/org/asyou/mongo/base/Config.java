@@ -4,11 +4,17 @@ import com.mongodb.MongoClientOptions;
 import org.asyou.mongo.common.Convert;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 /**
  * Created by Administrator on 2016/4/5.
  */
 public class Config implements Cloneable,Serializable {
+
+    public static Config build(){
+        return new Config();
+    }
+
     private String adapterId;
     private String hostName;
     private Integer port;
@@ -17,6 +23,10 @@ public class Config implements Cloneable,Serializable {
     private String databaseName;
 
     private MongoClientOptions mongoClientOptions;
+
+    public Config(){
+        this.mongoClientOptions = this.default_mongoClientOptions();
+    }
 
     public Config(String adapterId, String hostName, Integer port, String databaseName){
         default_init(adapterId, hostName, port, null, null, databaseName, default_mongoClientOptions());
@@ -58,6 +68,7 @@ public class Config implements Cloneable,Serializable {
 //        build.maxConnectionLifeTime(10 * 60 * 1000);
         //连接最大空闲时间
         build.maxConnectionIdleTime(30 * 1000);
+
         return build.build();
     }
 
@@ -65,56 +76,63 @@ public class Config implements Cloneable,Serializable {
         return adapterId;
     }
 
-    public void setAdapterId(String adapterId){
+    public Config setAdapterId(String adapterId){
         this.adapterId = adapterId;
+        return this;
     }
 
     public String getHostName() {
         return hostName;
     }
 
-    public void setHostName(String hostname) {
+    public Config setHostName(String hostname) {
         this.hostName = hostname;
+        return this;
     }
 
     public Integer getPort() {
         return port;
     }
 
-    public void setPort(Integer port) {
+    public Config setPort(Integer port) {
         this.port = port;
+        return this;
     }
 
     public String getUserName() {
         return userName;
     }
 
-    public void setUserName(String username) {
+    public Config setUserName(String username) {
         this.userName = username;
+        return this;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public Config setPassword(String password) {
         this.password = password;
+        return this;
     }
 
     public String getDatabaseName() {
         return databaseName;
     }
 
-    public void setDatabaseName(String databaseName) {
+    public Config setDatabaseName(String databaseName) {
         this.databaseName = databaseName;
+        return this;
     }
 
     public MongoClientOptions getMongoClientOptions() {
         return mongoClientOptions;
     }
 
-    public void setMongoClientOptions(MongoClientOptions mongoClientOptions) {
+    public Config setMongoClientOptions(MongoClientOptions mongoClientOptions) {
         this.mongoClientOptions = mongoClientOptions;
+        return this;
     }
 
     @Override

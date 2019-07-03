@@ -1,9 +1,8 @@
 package adapter;
 
-import config.DataConfig;
-import config.LogConfig;
-import org.asyou.mongo.base.ConfigManager;
+import org.asyou.mongo.base.Config;
 import org.asyou.mongo.dao.MongoAdapter;
+import org.asyou.mongo.dao.MongoHostManager;
 import org.asyou.mongo.exception.MongoAdapterException;
 
 public class AdapterFactory {
@@ -25,9 +24,7 @@ public class AdapterFactory {
     }
 
     public static void initConfig() throws MongoAdapterException {
-        ConfigManager.addConfig(
-                new DataConfig(hostname)
-//                new LogConfig(hostname)
-        );
+        Config dataConfig = Config.build().setAdapterId(hostname).setPort(27017);
+        MongoHostManager.addHost(dataConfig);
     }
 }

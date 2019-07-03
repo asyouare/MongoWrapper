@@ -1,11 +1,7 @@
 package adapter;
 
-import config.DataConfig;
-import config.LogConfig;
 import model.Label;
 import model.UserModel;
-import org.asyou.mongo.base.ConfigManager;
-import org.asyou.mongo.dao.MongoAdapter;
 import org.bson.types.ObjectId;
 import org.junit.Before;
 

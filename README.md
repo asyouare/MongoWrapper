@@ -45,9 +45,9 @@ Config dataConfig = new Config("adapter_data","hostname",27017,"database_name");
 MongoClientOptions options = ....
 Config logConfig = new Config("adapter_log","hostname",27017,"user_name","password","database_name",options);
 ```
-装入构造器对象，多个数据库服务器可以配置多个Config，然后使用ConfigManager装入：  
+将配置装入Mongo管理器，多个数据库服务器可以配置多个Config：  
 ```text
-ConfigManager.addConfig(
+MongoHostManager.addHost(
     dataConfig,
     logConfig
 );

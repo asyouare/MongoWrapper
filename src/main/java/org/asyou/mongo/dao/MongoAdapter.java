@@ -27,7 +27,7 @@ public class MongoAdapter {
         if (!MongoHostManager.containsId(adapterId)) {
             throw new MongoAdapterException(String.format("MongoAdapter id'%s' is not found",adapterId));
         }
-        this.mongoHost = MongoHostManager.getSequoiaHost(adapterId);
+        this.mongoHost = MongoHostManager.getMongoHost(adapterId);
         this.collectionName = new ThreadLocal<>();
     }
 
