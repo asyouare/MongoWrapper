@@ -58,12 +58,14 @@ MongoHostManager.addHost(
 - #### **如何连接数据库：**
 数据库的连接操作已经集成在操作器内部，你可以忽略数据库连接的任何操作，而只关心操作本身：
 ```text
-MongoAdapter.create("adapter_data").find()
-MongoAdapter.create("adapter_data").insert()
-MongoAdapter.create("adapter_data").update()
-MongoAdapter.create("adapter_data").delete()
-MongoAdapter.create("adapter_data").count()
-MongoAdapter.create("adapter_data").aggregate()
+MongoAdapter adapter = MongoAdapter.create("adapter_data")
+
+adapter.find()
+adapter.insert()
+adapter.update()
+adapter.delete()
+adapter.count()
+adapter.aggregate()
 ```
 
 - #### **如何使用查询器：**
